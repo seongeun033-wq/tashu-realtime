@@ -35,4 +35,4 @@ jobs:
           git pull --rebase origin main
           git add seogu_realtime.json
           git diff --staged --quiet || git commit -m "Update realtime data"
-          git push
+          git push --force-with-lease
