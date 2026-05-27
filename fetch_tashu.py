@@ -32,7 +32,7 @@ try:
             })
 
     output = {
-        'updated_at': datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
+        'updated_at': datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC'),
         'count': len(seogu),
         'stations': seogu
     }
