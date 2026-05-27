@@ -5,7 +5,7 @@ from datetime import datetime
 
 API_KEY = os.environ.get('TASHU_API_KEY')
 if not API_KEY:
-    raise ValueError('TASHU_API_KEY가 설정되지 않았습니다.)
+    raise ValueError('TASHU_API_KEY is not set')
 URL = 'https://bikeapp.tashu.or.kr:50041/v1/openapi/station'
 
 headers = {
