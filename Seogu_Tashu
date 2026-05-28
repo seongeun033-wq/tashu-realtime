@@ -22,10 +22,12 @@ body{display:flex;flex-direction:column;overflow:hidden}
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:blink 1.8s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .main{display:flex;flex:1;overflow:hidden}
-.sidebar{width:340px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.sidebar{width:480px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:row;overflow:hidden}
+.sidebar-left{width:240px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border)}
+.sidebar-right{width:240px;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden}
 .map-area{flex:1;position:relative}
-.s-section{padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
-.s-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.s-section{padding:.75rem 1rem;border-bottom:1px solid var(--border)}
+.s-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
 select{width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:.45rem .6rem;font-size:13px;font-family:'Noto Sans KR',sans-serif;outline:none;cursor:pointer;margin-bottom:.5rem}
 select:focus{border-color:var(--accent)}
 .hour-row{display:flex;align-items:center;gap:.75rem}
@@ -37,7 +39,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
 .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
 .kpi{background:var(--surface2);border-radius:8px;padding:.6rem .75rem;border:1px solid var(--border)}
 .kpi-label{font-size:10px;color:var(--muted);margin-bottom:3px}
-.kpi-val{font-family:'Space Mono',monospace;font-size:17px;font-weight:700;color:var(--text)}
+.kpi-val{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;color:var(--text)}
 .kpi-sub{font-size:10px;color:var(--muted);margin-top:1px}
 .station-scroll{flex:1;overflow-y:auto;padding:.75rem 1.25rem}
 .station-scroll::-webkit-scrollbar{width:4px}
@@ -118,7 +120,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
 </div>
 
 <div class="main">
-  <div class="sidebar">
+  <div class="sidebar"><div class="sidebar-left">
     <div class="s-section">
       <div class="s-label">조건 입력</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:4px">동 선택</div>
@@ -158,6 +160,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         <span style="font-size:10px;color:#d2a679;display:block;margin-top:.5rem">✔ 이름 변경 대여소 좌표 통합 적용</span>
       </div>
     </div>
+  </div><!-- /sidebar-left -->
+  <div class="sidebar-right">
 
     <div class="station-scroll" id="stationList" style="display:none"></div>
 
@@ -166,6 +170,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
       <div class="trend-wrap"><canvas id="trendChart"></canvas></div>
       <div style="font-size:10px;color:var(--muted);margin-top:.3rem;text-align:center">막대 = 해당 월 일평균 건수</div>
     </div>
+  </div><!-- /sidebar-right -->
   </div>
 
   <div class="map-area">
